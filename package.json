@@ -1,0 +1,20 @@
+{
+	"name": "bitbyte",
+	"version": "1.0.0",
+	"description": "Flexible Byte Structure for JavaScript.",
+	"main": "BitByte.js",
+	"scripts": {
+		"test": "node -r dotenv/config test.js"
+	},
+	"keywords": [
+		"byte",
+		"bit"
+	],
+	"author": "Zekfad <zekfad@znnme.ru.eu.org> (https://znnme.ru.eu.org)",
+	"license": "ISC",
+	"repository": "github:Zekfad/BitByte",
+	"devDependencies": {
+		"eslint": "^6.4.0",
+		"dotenv": "^8.1.0"
+	}
+}
