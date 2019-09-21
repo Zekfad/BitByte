@@ -39,6 +39,9 @@ class BitByte {
 		}
 		return byte;
 	}
+	getChar() {
+		return String.fromCharCode(this);
+	}
 	*[Symbol.iterator]() {
 		for (let i = 0; i < 8; i++) {
 			yield this.getBit(i);
