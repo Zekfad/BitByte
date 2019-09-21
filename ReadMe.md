@@ -7,7 +7,7 @@ Flexible byte representation for JavaScript.
 ### Example
 
 ```js
-const BitByte = require('bitbyte');
+const BitByte = require('@zekfad/bitbyte');
 
 const myByte = new BitByte(200);
 

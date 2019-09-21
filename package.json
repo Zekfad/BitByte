@@ -1,5 +1,5 @@
 {
-	"name": "bitbyte",
+	"name": "@zekfad/bitbyte",
 	"version": "1.0.0",
 	"description": "Flexible Byte Structure for JavaScript.",
 	"main": "BitByte.js",
