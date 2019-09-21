@@ -29,6 +29,13 @@ if (process.env.test_bits) {
 
 if (process.env.test_iterator) {
 	let byte = new BitByte(255),
-		iteratedBits = [ ...byte, ];
-	console.log(`Iterator test: ${byte.data === iteratedBits ? 'OK' : 'FAIL'}`);
+		iteratedBits = [ ...byte, ],
+		pass = true;
+	for (var i = 0; i < byte.length; i++) {
+		if (byte[i] !== iteratedBits[i]) {
+			pass = false;
+			break;
+		}
+	}
+	console.log(`Iterator test: ${pass ? 'OK' : 'FAIL'}`);
 }
