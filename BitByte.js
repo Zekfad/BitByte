@@ -1,31 +1,4 @@
-function checkOffset(offset) {
-	if ('[object Number]' !== Object.prototype.toString.call(offset)) {
-		throw new Error('Offset must be a Number');
-	}
-	if (offset > 7) {
-		throw new Error('Offset must not be greater than 7');
-	}
-	return true;
-}
-
-function fitBits(bitsArray) {
-	var fullBitsArray = [
-		0, 0, 0, 0, 0, 0, 0, 0,
-	];
-	for (var i = 7; i > -1; i--) {
-		fullBitsArray[i] = !bitsArray[i - (8 - bitsArray.length)] ^ true;
-	}
-	return fullBitsArray;
-}
-
-function splitByteToBits(byte) {
-	return fitBits(
-		byte
-			.toString(2)
-			.split('')
-			.map(bit => +bit)
-	);
-}
+const BitHelper = require('./BitHelper.js');
 
 class BitByte {
 	constructor(initialData = [
@@ -34,13 +7,13 @@ class BitByte {
 		if ('[object Number]' === Object.prototype.toString.call(initialData)) {
 			if (initialData < 0 || initialData > 255)
 				throw new Error("Byte's byte Number must be in range of [0;255].");
-			this.data = splitByteToBits(initialData);
+			this.data = BitHelper.splitByteToBits(initialData);
 		} else if (
 			'[object Array]' === Object.prototype.toString.call(initialData)
 		) {
 			if (initialData.length > 8)
 				throw new Error("Byte's bits Array length must not exceed of 8");
-			this.data = fitBits(
+			this.data = BitHelper.fitBits(
 				initialData.map(bit => {
 					let newBit = +bit;
 					if (isNaN(newBit))
@@ -51,12 +24,12 @@ class BitByte {
 		} else throw new Error('Byte must be an bits Array or byte Number');
 	}
 	setBit(offset, bit) {
-		checkOffset(offset);
+		BitHelper.checkOffset(offset);
 		this.data[offset] = !bit ^ true;
 		return this.data;
 	}
 	getBit(offset) {
-		checkOffset(offset);
+		BitHelper.checkOffset(offset);
 		return this.data[offset];
 	}
 	getByte() {
