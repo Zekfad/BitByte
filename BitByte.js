@@ -73,6 +73,8 @@ class BitByte {
 	}
 }
 
+BitByte.prototype.length = 8;
+
 BitByte.prototype.valueOf = function () {
 	return this.getByte();
 };
