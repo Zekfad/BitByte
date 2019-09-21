@@ -39,3 +39,9 @@ if (process.env.test_iterator) {
 	}
 	console.log(`Iterator test: ${pass ? 'OK' : 'FAIL'}`);
 }
+
+if (process.env.test_char) {
+	console.log(
+		`Character test: ${'A' === new BitByte(65).getChar() ? 'OK' : 'FAIL'}`
+	);
+}
