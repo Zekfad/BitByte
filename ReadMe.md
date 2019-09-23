@@ -1,5 +1,7 @@
 # BitByte
 
+[![npm version](https://img.shields.io/npm/v/@zekfad/bitbyte?style=for-the-badge)](https://www.npmjs.com/package/@zekfad/bitbyte)![node version](https://img.shields.io/node/v/@zekfad/bitbyte?style=for-the-badge)
+
 Flexible byte representation for JavaScript.
 
 ## Install
