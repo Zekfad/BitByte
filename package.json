@@ -2,6 +2,9 @@
 	"name": "@zekfad/bitbyte",
 	"version": "1.0.0",
 	"description": "Flexible Byte Structure for JavaScript.",
+	"engines": {
+		"node" : ">=8.16.1"
+	},
 	"main": "BitByte.js",
 	"scripts": {
 		"test": "node -r dotenv/config test.js"
