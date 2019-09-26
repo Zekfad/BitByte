@@ -6,6 +6,8 @@ Flexible byte representation for JavaScript.
 
 ## Install
 
+Install via npm:
+
 ```
 npm install --save @zekfad/bitbyte
 ```
