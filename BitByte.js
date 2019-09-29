@@ -4,7 +4,7 @@ const BitHelper = require('./BitHelper.js');
 class BitByte {
 	/**
 	 * Create a byte.
-	 * @param {number|number[]} initialData - Unsigned byte integer or bits array.
+	 * @param {number|number[]|boolean[]} initialData - Unsigned byte integer or bits array.
 	 */
 	constructor(initialData = [
 		0, 0, 0, 0, 0, 0, 0, 0,
