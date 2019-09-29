@@ -81,6 +81,20 @@ class BitByte {
 		return this.getByte();
 	}
 	/**
+	 * Assign array of bits to an instance.
+	 * @param {number[]|boolean[]} bits - Bits array.
+	 * @param {number} - Assign offset.
+	 * @returns {boolean} - Returns true if no errors found.
+	 */
+	assign(bits, offset = 0) {
+		if ('[object Array]' !== Object.prototype.toString.call(bits))
+			throw new Error('Bits must be an array');
+		if ('[object Number]' !== Object.prototype.toString.call(offset))
+			throw new Error('Offset must be a number');
+		bits.forEach((bit, index) => this.setBit(offset + index, bit));
+		return true;
+	}
+	/**
 	 * Generate bits sequence.
 	 * @yields {number} - Next number in the sequence.
 	 */

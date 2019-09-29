@@ -22,6 +22,36 @@ describe('BitByte', () => {
 
 	});
 
+	describe('#assign()', () => {
+
+		it('should assign provided array of bits to beginning of local storage of bits', () => {
+			let byte = new BitByte([
+				0, 1, 0, 0, 0, 0, 0, 0
+			]);
+
+			byte.assign([
+				1, 0, 1,
+			]);
+
+			assert.equal(byte.getBit(0), 1);
+			assert.equal(byte.getBit(1), 0);
+			assert.equal(byte.getBit(2), 1);
+
+			byte.assign(
+				[
+					1, 0, 1,
+				],
+				1
+			);
+
+			assert.equal(byte.getBit(0), 1);
+			assert.equal(byte.getBit(1), 1);
+			assert.equal(byte.getBit(2), 0);
+			assert.equal(byte.getBit(3), 1);
+		});
+
+	});
+
 	describe('#getBit()', () => {
 
 		it('should display requested bit', () => {
