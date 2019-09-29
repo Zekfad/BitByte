@@ -42,22 +42,18 @@ class BitByte {
 	getChar() {
 		return String.fromCharCode(this);
 	}
+	toString() {
+		return this.data.join('');
+	}
+	valueOf() {
+		return this.getByte();
+	}
 	*[Symbol.iterator]() {
 		for (let i = 0; i < 8; i++) {
 			yield this.getBit(i);
 		}
 	}
 }
-
-BitByte.prototype.length = 8;
-
-BitByte.prototype.valueOf = function () {
-	return this.getByte();
-};
-
-BitByte.prototype.toString = function () {
-	return this.data.join('');
-};
 
 for (let i = 0; i < 8; i++) {
 	Object.defineProperty(BitByte.prototype, i, {
