@@ -50,7 +50,7 @@ const myByte = new BitByte([ 1, 1, 0, 0, 1, 0, 0, 0]);
 console.log(myByte.toString()); // 11001000
 ```
 
-Also you can pass Booleans:
+You can also pass in Booleans:
 
 ```js
 const myByte = new BitByte([ true, true, false, false, true, false, false, false]);
@@ -98,7 +98,7 @@ console.log(myByte.toString()); // '11001000'
 
 ### Methods
 
-For those who wants to use function calls.
+For those who want to use function calls.
 
 #### `assign(bits, offset)`
 
@@ -106,18 +106,18 @@ Assigns array of bits to an instance.
 
 #### `getBit(offset)`
 
-Returns bit from requested offset in range from 0 to 7.
+Returns a bit from requested offset in range from 0 to 7.
 
 #### `setBit(offset, bit)`
 
-Sets bit on requested offset in range from 0 to 7.
+Sets a bit on requested offset in range from 0 to 7.
 
 `bit` must be `Number` (`0` or `1`) or `Boolean`.
 
 #### `getByte()`
 
-Returns byte as signed 8-bit integer.
+Returns byte as an unsigned byte integer.
 
 #### `getChar()`
 
-Returns character from byte.
+Returns character from a byte.
