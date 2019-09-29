@@ -3,21 +3,21 @@
 	"version": "1.0.2",
 	"description": "Flexible Byte Structure for JavaScript.",
 	"engines": {
-		"node" : ">=8.16.1"
+		"node": ">=8.16.1"
 	},
 	"main": "BitByte.js",
 	"scripts": {
-		"test": "node -r dotenv/config test.js"
+		"test": "mocha"
 	},
 	"keywords": [
-		"byte",
-		"bit"
+		"bit",
+		"byte"
 	],
 	"author": "Zekfad <zekfad@znnme.ru.eu.org> (https://znnme.ru.eu.org)",
 	"license": "ISC",
 	"repository": "github:Zekfad/BitByte",
 	"devDependencies": {
 		"eslint": "^6.4.0",
-		"dotenv": "^8.1.0"
+		"mocha": "^6.2.0"
 	}
 }
