@@ -100,6 +100,10 @@ console.log(myByte.toString()); // '11001000'
 
 For those who wants to use function calls.
 
+#### `assign(bits, offset)`
+
+Assigns array of bits to an instance.
+
 #### `getBit(offset)`
 
 Returns bit from requested offset in range from 0 to 7.
