@@ -1,13 +1,23 @@
 module.exports = {
+	/**
+	 * Check if given offset is acceptable.
+	 * @param {number} offset - Bit offset.
+	 * @returns {boolean} - Returns true if given argument is acceptable.
+	 */
 	checkOffset: function (offset) {
 		if ('[object Number]' !== Object.prototype.toString.call(offset)) {
 			throw new Error('Offset must be a Number');
 		}
-		if (offset > 7) {
+		if (offset > 7 || offset < 0) {
 			throw new Error('Offset must not be greater than 7');
 		}
 		return true;
 	},
+	/**
+	 * Fit array of bits to 8 elements array.
+	 * @param {number[]} bitsArray - Array of bits.
+	 * @returns {number[]} - Array of bits.
+	 */
 	fitBits: function (bitsArray) {
 		var fullBitsArray = [
 			0, 0, 0, 0, 0, 0, 0, 0,
@@ -17,6 +27,11 @@ module.exports = {
 		}
 		return fullBitsArray;
 	},
+	/**
+	 * Split unsigned byte integer to array of bits.
+	 * @param {number} byte - Unsigned byte integer.
+	 * @returns {number[]} - Array of bits.
+	 */
 	splitByteToBits: function (byte) {
 		return this.fitBits(
 			byte
