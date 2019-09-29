@@ -91,6 +91,25 @@ class BitByte {
 	}
 }
 
+/**
+ * Get class representing an array of bits with index assign checks.
+ * @returns {BitByteArray}
+ */
+BitByte.safe = function (...args) {
+	return new Proxy(new BitByte(...args), {
+		get: function (obj, prop) {
+			if ('[object Symbol]' !== Object.prototype.toString.call(prop) && !isNaN(+prop))
+				BitHelper.checkOffset(+prop);
+			return obj[prop];
+		},
+		set: function (obj, prop, value) {
+			if ('[object Symbol]' !== Object.prototype.toString.call(prop) && !isNaN(+prop))
+				BitHelper.checkOffset(+prop);
+			return obj[prop] = value;
+		},
+	});
+};
+
 for (let i = 0; i < 8; i++) {
 	Object.defineProperty(BitByte.prototype, i, {
 		get: function () {
