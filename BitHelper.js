@@ -3,7 +3,7 @@ module.exports = {
 		if ('[object Number]' !== Object.prototype.toString.call(offset)) {
 			throw new Error('Offset must be a Number');
 		}
-		if (offset > 7) {
+		if (offset > 7 || offset < 0) {
 			throw new Error('Offset must not be greater than 7');
 		}
 		return true;
