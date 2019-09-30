@@ -34,7 +34,7 @@ console.log(0 + myByte); // 168
 
 ### Create byte
 
-#### From signed 8-bit integer
+#### From unsigned byte integer
 
 ```js
 const myByte = new BitByte(200);
