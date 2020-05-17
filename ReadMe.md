@@ -1,6 +1,6 @@
 # BitByte
 
-[![npm version](https://img.shields.io/npm/v/@zekfad/bitbyte?style=for-the-badge)](https://www.npmjs.com/package/@zekfad/bitbyte)![node version](https://img.shields.io/node/v/@zekfad/bitbyte?style=for-the-badge)
+[![npm version](https://img.shields.io/npm/v/@zekfad/bitbyte?style=for-the-badge)](https://www.npmjs.com/package/@zekfad/bitbyte)![node version](https://img.shields.io/node/v/@zekfad/bitbyte?style=for-the-badge)[![Build status](https://img.shields.io/travis/Zekfad/BitByte?style=for-the-badge)](https://travis-ci.org/github/Zekfad/BitByte)
 
 Flexible byte representation for JavaScript.
 
