@@ -26,7 +26,7 @@ describe('BitByte', () => {
 
 		it('should assign provided array of bits to beginning of local storage of bits', () => {
 			let byte = new BitByte([
-				0, 1, 0, 0, 0, 0, 0, 0
+				0, 1, 0, 0, 0, 0, 0, 0,
 			]);
 
 			byte.assign([
@@ -56,7 +56,7 @@ describe('BitByte', () => {
 
 		it('should display requested bit', () => {
 			let byte = new BitByte([
-				0, 1, 0, 0, 0, 0, 0, 0
+				0, 1, 0, 0, 0, 0, 0, 0,
 			]);
 
 			assert.equal(byte.getBit(0), 0);
