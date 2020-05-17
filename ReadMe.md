@@ -12,6 +12,12 @@ Install via npm:
 npm install --save @zekfad/bitbyte
 ```
 
+Install via yarn:
+
+```
+yarn add @zekfad/bitbyte
+```
+
 ## Usage
 
 ### Example
