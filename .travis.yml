@@ -17,6 +17,6 @@ jobs:
   - name: Latest Node - Linux
     node_js: node
     os: linux
-  - name: Latest Node - OSX
-    node_js: node
-    os: osx
+#  - name: Latest Node - OSX
+#    node_js: node
+#    os: osx
