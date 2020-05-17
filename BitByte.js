@@ -130,7 +130,7 @@ for (let i = 0; i < 8; i++) {
 			return this.getBit(i);
 		},
 		set: function (newBit) {
-			return this.setBit(i, newBit);
+			this.setBit(i, newBit);
 		},
 		enumerable: true,
 	});

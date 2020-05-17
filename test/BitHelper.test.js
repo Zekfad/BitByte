@@ -18,9 +18,7 @@ describe('BitHelper', () => {
 
 		it('should fit array of bits to 8 elements array', () => {
 			assert.deepEqual(
-				BitHelper.fitBits([
-					1, 0,
-				]),
+				BitHelper.fitBits([ 1, 0, ]),
 				[
 					0, 0, 0, 0, 0, 0, 1, 0,
 				]
