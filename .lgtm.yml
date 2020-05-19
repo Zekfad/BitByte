@@ -1,0 +1,39 @@
+path_classifiers:
+  docs:
+    - ".github/*"
+    - "docs/*"
+    - "LICENSE*"
+    - "README*"
+  test:
+    - "**/test/*"
+    - "**/*test*.*"
+  generated:
+    - "dist/*"
+  library:
+    - "**/node_modules/*"
+  configuration:
+    - .eslintignore
+    - .eslintrc.json
+    - .gitattributes
+    - .gitignore
+    - .gitmodules
+    - .lgtm.yml
+    - .npmignore
+    - .travis.yml
+    - package.json
+    - yarn.lock
+
+extraction:
+  javascript:
+    index:
+      exclude:
+        - "**/node_modules/*"
+        - dist
+      filetypes:
+        ".cjs": "js"
+        ".mjs": "js"
+      filters:
+        - exclude: "**/node_modules/*"
+        - include: "**/*.ts"
+      typescript: full
+      xml_mode: all

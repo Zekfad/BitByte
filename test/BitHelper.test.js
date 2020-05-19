@@ -10,6 +10,7 @@ describe('BitHelper', () => {
 			assert.equal(BitHelper.checkOffset(0), true);
 			assert.throws(() => BitHelper.checkOffset(-1));
 			assert.throws(() => BitHelper.checkOffset(8));
+			assert.throws(() => BitHelper.checkOffset(''));
 		});
 
 	});

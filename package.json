@@ -1,7 +1,7 @@
 {
 	"main": "./BitByte.js",
 	"name": "@zekfad/bitbyte",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "Flexible Byte Structure for JavaScript.",
 	"keywords": [
 		"bit",
@@ -17,14 +17,17 @@
 	"repository": "github:Zekfad/BitByte",
 	"scripts": {
 		"lint": "eslint . --ext .js,.mjs,.cjs",
-		"test": "mocha"
+		"test": "nyc --reporter=lcov mocha",
+		"coverage": "codecov"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.9.6",
 		"babel-eslint": "^10.1.0",
+		"codecov": "^3.7.0",
 		"eslint": "^7.0.0",
 		"eslint-plugin-import": "^2.20.2",
-		"mocha": "^7.1.2"
+		"mocha": "^7.1.2",
+		"nyc": "^15.0.1"
 	},
 	"engines": {
 		"node": ">=12 || ~10"

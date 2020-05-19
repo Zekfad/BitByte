@@ -10,14 +10,18 @@ describe('BitByte', () => {
 			assert.equal(new BitByte(2), 2);
 		});
 
-		it('should should accept an unsigned byte integer', () => {
+		it('should accept an unsigned byte integer', () => {
 			assert.equal(new BitByte([
 				0, 0, 0, 0, 0, 0, 1, 0,
 			]), 2);
 		});
 
-		it('should ', () => {
-
+		it('should check whatever parameters are correct', () => {
+			assert.throws(() => new BitByte(''));
+			assert.throws(() => new BitByte(-1));
+			assert.throws(() => new BitByte(256));
+			assert.throws(() => new BitByte(new Array(9)));
+			assert.throws(() => new BitByte([ 'invalid', ]));
 		});
 
 	});
@@ -48,6 +52,14 @@ describe('BitByte', () => {
 			assert.equal(byte.getBit(1), 1);
 			assert.equal(byte.getBit(2), 0);
 			assert.equal(byte.getBit(3), 1);
+		});
+
+		it('should check whatever parameters are correct', () => {
+			let byte = new BitByte();
+
+			assert.throws(() => byte.assign(''));
+			assert.throws(() => byte.assign([], ''));
+			assert.throws(() => byte.assign([ 1, ], 10));
 		});
 
 	});
@@ -127,14 +139,35 @@ describe('BitByte', () => {
 			assert.equal(pass, true);
 		});
 
+		it('should return bits by index', () => {
+			let byte = new BitByte([
+				1, 0, 0, 0, 0, 0, 0, 1,
+			]);
+
+			assert.equal(byte[0], 1);
+			assert.equal(byte[1], 0);
+			assert.equal(byte[7], 1);
+		});
+
+		it('should assign bits by index', () => {
+			let byte = new BitByte(0);
+
+			byte[0] = 1;
+			byte[7] = 1;
+
+			assert.equal(byte.getBit(0), 1);
+			assert.equal(byte.getBit(1), 0);
+			assert.equal(byte.getBit(7), 1);
+		});
+
 	});
 
 	describe('operator actions', () => {
 
 		it('should work as if it would be a simple number', () => {
-			assert.equal(new BitByte(2) ^ 2, 2 ^ 2);
-			assert.equal(2 ^ new BitByte(2), 2 ^ 2);
-			assert.equal(new BitByte(2) ^ new BitByte(2), 2 ^ 2);
+			assert.equal(new BitByte(2) ^ 4, 2 ^ 4);
+			assert.equal(2 ^ new BitByte(4), 2 ^ 4);
+			assert.equal(new BitByte(2) ^ new BitByte(4), 2 ^ 4);
 		});
 
 	});
@@ -148,6 +181,8 @@ describe('BitByte', () => {
 
 				assert.throws(() => byte.getBit(-1));
 				assert.throws(() => byte.getBit(8));
+
+				assert.throws(() => byte[8]);
 			});
 
 			it('should throw an error on out of index set request', () => {
@@ -155,6 +190,15 @@ describe('BitByte', () => {
 
 				assert.throws(() => byte.setBit(-1));
 				assert.throws(() => byte.setBit(8));
+
+				assert.throws(() => byte[8] = 1);
+			});
+
+			it('should redirect custom properties assign', () => {
+				let byte = new BitByte.safe();
+
+				byte.test = 'test';
+				assert.equal(byte.test, 'test');
 			});
 
 			// If main tests for get and set doesn't fail, we don't need to test proxy
