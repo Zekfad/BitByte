@@ -21,6 +21,7 @@ describe('BitByte', () => {
 			assert.throws(() => new BitByte(-1));
 			assert.throws(() => new BitByte(256));
 			assert.throws(() => new BitByte(new Array(9)));
+			assert.throws(() => new BitByte([ 'invalid', ]));
 		});
 
 	});
@@ -138,6 +139,27 @@ describe('BitByte', () => {
 			assert.equal(pass, true);
 		});
 
+		it('should return bits by index', () => {
+			let byte = new BitByte([
+				1, 0, 0, 0, 0, 0, 0, 1,
+			]);
+
+			assert.equal(byte[0], 1);
+			assert.equal(byte[1], 0);
+			assert.equal(byte[7], 1);
+		});
+
+		it('should assign bits by index', () => {
+			let byte = new BitByte(0);
+
+			byte[0] = 1;
+			byte[7] = 1;
+
+			assert.equal(byte.getBit(0), 1);
+			assert.equal(byte.getBit(1), 0);
+			assert.equal(byte.getBit(7), 1);
+		});
+
 	});
 
 	describe('operator actions', () => {
@@ -170,6 +192,13 @@ describe('BitByte', () => {
 				assert.throws(() => byte.setBit(8));
 
 				assert.throws(() => byte[8] = 1);
+			});
+
+			it('should redirect custom properties assign', () => {
+				let byte = new BitByte.safe();
+
+				byte.test = 'test';
+				assert.equal(byte.test, 'test');
 			});
 
 			// If main tests for get and set doesn't fail, we don't need to test proxy
