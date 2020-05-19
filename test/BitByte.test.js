@@ -132,9 +132,9 @@ describe('BitByte', () => {
 	describe('operator actions', () => {
 
 		it('should work as if it would be a simple number', () => {
-			assert.equal(new BitByte(2) ^ 2, 2 ^ 2);
-			assert.equal(2 ^ new BitByte(2), 2 ^ 2);
-			assert.equal(new BitByte(2) ^ new BitByte(2), 2 ^ 2);
+			assert.equal(new BitByte(2) ^ 4, 2 ^ 4);
+			assert.equal(2 ^ new BitByte(4), 2 ^ 4);
+			assert.equal(new BitByte(2) ^ new BitByte(4), 2 ^ 4);
 		});
 
 	});
