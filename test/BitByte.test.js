@@ -10,14 +10,17 @@ describe('BitByte', () => {
 			assert.equal(new BitByte(2), 2);
 		});
 
-		it('should should accept an unsigned byte integer', () => {
+		it('should accept an unsigned byte integer', () => {
 			assert.equal(new BitByte([
 				0, 0, 0, 0, 0, 0, 1, 0,
 			]), 2);
 		});
 
-		it('should ', () => {
-
+		it('should check whatever parameters are correct', () => {
+			assert.throws(() => new BitByte(''));
+			assert.throws(() => new BitByte(-1));
+			assert.throws(() => new BitByte(256));
+			assert.throws(() => new BitByte(new Array(9)));
 		});
 
 	});
@@ -48,6 +51,14 @@ describe('BitByte', () => {
 			assert.equal(byte.getBit(1), 1);
 			assert.equal(byte.getBit(2), 0);
 			assert.equal(byte.getBit(3), 1);
+		});
+
+		it('should check whatever parameters are correct', () => {
+			let byte = new BitByte();
+
+			assert.throws(() => byte.assign(''));
+			assert.throws(() => byte.assign([], ''));
+			assert.throws(() => byte.assign([], 10));
 		});
 
 	});
@@ -148,6 +159,8 @@ describe('BitByte', () => {
 
 				assert.throws(() => byte.getBit(-1));
 				assert.throws(() => byte.getBit(8));
+
+				assert.throws(() => byte[8]);
 			});
 
 			it('should throw an error on out of index set request', () => {
@@ -155,6 +168,8 @@ describe('BitByte', () => {
 
 				assert.throws(() => byte.setBit(-1));
 				assert.throws(() => byte.setBit(8));
+
+				assert.throws(() => byte[8] = 1);
 			});
 
 			// If main tests for get and set doesn't fail, we don't need to test proxy
