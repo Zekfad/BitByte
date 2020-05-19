@@ -58,7 +58,7 @@ describe('BitByte', () => {
 
 			assert.throws(() => byte.assign(''));
 			assert.throws(() => byte.assign([], ''));
-			assert.throws(() => byte.assign([], 10));
+			assert.throws(() => byte.assign([ 1, ], 10));
 		});
 
 	});
