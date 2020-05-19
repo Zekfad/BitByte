@@ -1,6 +1,6 @@
 # BitByte
 
-[![npm version](https://img.shields.io/npm/v/@zekfad/bitbyte?style=for-the-badge)](https://www.npmjs.com/package/@zekfad/bitbyte)![node version](https://img.shields.io/node/v/@zekfad/bitbyte?style=for-the-badge)[![Build status](https://img.shields.io/travis/Zekfad/BitByte?style=for-the-badge)](https://travis-ci.org/github/Zekfad/BitByte)[![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/Zekfad/BitByte?logo=lgtm&style=for-the-badge)](https://lgtm.com/projects/g/Zekfad/BitByte/context:javascript)
+[![npm version](https://img.shields.io/npm/v/@zekfad/bitbyte?style=for-the-badge)](https://www.npmjs.com/package/@zekfad/bitbyte)![node version](https://img.shields.io/node/v/@zekfad/bitbyte?style=for-the-badge)[![Build status](https://img.shields.io/travis/Zekfad/BitByte?style=for-the-badge)](https://travis-ci.org/github/Zekfad/BitByte)[![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/Zekfad/BitByte?logo=lgtm&style=for-the-badge)](https://lgtm.com/projects/g/Zekfad/BitByte/context:javascript)[![Codecov](https://img.shields.io/codecov/c/gh/Zekfad/BitByte?style=for-the-badge)](https://codecov.io/gh/Zekfad/BitByte)
 
 Flexible byte representation for JavaScript.
 

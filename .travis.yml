@@ -14,9 +14,10 @@ jobs:
 #  - name: Latest Node - Windows
 #    node_js: node
 #    os: windows
-  - name: Latest Node - Linux
-    node_js: node
-    os: linux
 #  - name: Latest Node - OSX
 #    node_js: node
 #    os: osx
+  - name: Latest Node - Linux
+    node_js: node
+    os: linux
+    after_success: yarn run coverage
