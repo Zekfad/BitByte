@@ -1,9 +1,5 @@
 # VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 *.code-workspace
 
 # VS
@@ -14,20 +10,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-## Build artifacts
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
 
 # Git
 .git/
@@ -41,3 +23,19 @@ coverage/
 
 # Environment
 .env
+
+# Source
+src/
+
+# Documentation 
+docs/
+
+# Tests
+test/
+
+# Development configs and utils
+**/.*ignore
+**/.*rc*
+**/.jsdoc*
+**/rollup.config.*
+**/.*.yml

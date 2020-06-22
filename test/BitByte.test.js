@@ -6,11 +6,11 @@ describe('BitByte', () => {
 
 	describe('constructor', () => {
 
-		it('should accept an array of bits', () => {
+		it('should accept an unsigned byte integer', () => {
 			assert.equal(new BitByte(2), 2);
 		});
 
-		it('should accept an unsigned byte integer', () => {
+		it('should accept an array of bits', () => {
 			assert.equal(new BitByte([
 				0, 0, 0, 0, 0, 0, 1, 0,
 			]), 2);
