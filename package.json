@@ -1,7 +1,7 @@
 {
 	"main": "./BitByte.js",
 	"name": "@zekfad/bitbyte",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Flexible Byte Structure for JavaScript.",
 	"keywords": [
 		"bit",
@@ -30,6 +30,6 @@
 		"nyc": "^15.0.1"
 	},
 	"engines": {
-		"node": ">=12 || ~10"
+		"node": "~10 || >=12"
 	}
 }
