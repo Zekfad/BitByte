@@ -4,7 +4,7 @@ const BitHelper = require('./BitHelper.js');
 class BitByte {
 	/**
 	 * Create a byte.
-	 * @param {number|number[]|boolean[]} initialData - Unsigned byte integer or bits array.
+	 * @param {number|number[]|boolean[]} initialData Unsigned byte integer or bits array.
 	 */
 	constructor(initialData = [
 		0, 0, 0, 0, 0, 0, 0, 0,
@@ -35,9 +35,9 @@ class BitByte {
 
 	/**
 	 * Change bit on a given offset.
-	 * @param {number} offset - Bit offset.
-	 * @param {number|boolean} bit - Bit.
-	 * @returns {number} - Bit.
+	 * @param {number} offset Bit offset.
+	 * @param {number|boolean} bit Bit.
+	 * @returns {number} Bit.
 	 */
 	setBit(offset, bit) {
 		BitHelper.checkOffset(offset);
@@ -47,8 +47,8 @@ class BitByte {
 
 	/**
 	 * Get bit on a given offset.
-	 * @param {number} offset - Bit offset.
-	 * @returns {number} - Bit.
+	 * @param {number} offset Bit offset.
+	 * @returns {number} Bit.
 	 */
 	getBit(offset) {
 		BitHelper.checkOffset(offset);
@@ -57,7 +57,7 @@ class BitByte {
 
 	/**
 	 * Get local storage of bits as an unsigned byte integer.
-	 * @returns {number} - Unsigned byte integer.
+	 * @returns {number} Unsigned byte integer.
 	 */
 	getByte() {
 		let { data, } = this,
@@ -70,7 +70,7 @@ class BitByte {
 
 	/**
 	 * Get local storage of bits as ASCII character.
-	 * @returns {string} - ASCII character.
+	 * @returns {string} ASCII character.
 	 */
 	getChar() {
 		return String.fromCharCode(this);
@@ -78,7 +78,7 @@ class BitByte {
 
 	/**
 	 * Get local storage of bits as string.
-	 * @returns {string} - String representation of local storage of bits.
+	 * @returns {string} String representation of local storage of bits.
 	 */
 	toString() {
 		return this.data.join('');
@@ -86,7 +86,7 @@ class BitByte {
 
 	/**
 	 * Get local storage of bits an unsigned byte integer.
-	 * @returns {string} - Unsigned byte integer.
+	 * @returns {string} Unsigned byte integer.
 	 */
 	valueOf() {
 		return this.getByte();
@@ -94,9 +94,9 @@ class BitByte {
 
 	/**
 	 * Assign array of bits to an instance.
-	 * @param {number[]|boolean[]} bits - Bits array.
-	 * @param {number} - Assign offset.
-	 * @returns {boolean} - Returns true if no errors found.
+	 * @param {number[]|boolean[]} bits Bits array.
+	 * @param {number} Assign offset.
+	 * @returns {boolean} Returns true if no errors found.
 	 */
 	assign(bits, offset = 0) {
 		if ('[object Array]' !== Object.prototype.toString.call(bits))
@@ -109,7 +109,7 @@ class BitByte {
 
 	/**
 	 * Generate bits sequence.
-	 * @yields {number} - Next number in the sequence.
+	 * @yields {number} Next number in the sequence.
 	 */
 	*[Symbol.iterator]() {
 		for (let i = 0; i < 8; i++) {
