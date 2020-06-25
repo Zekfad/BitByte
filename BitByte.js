@@ -11,23 +11,28 @@ class BitByte {
 	]) {
 		if ('[object Number]' === Object.prototype.toString.call(initialData)) {
 			if (initialData < 0 || initialData > 255)
-				throw new Error("Byte's byte Number must be in range of [0;255].");
+				throw new Error('Argument with type of Number must be in the range of 0 to 255');
+
 			this.data = BitHelper.splitByteToBits(initialData);
 		} else if (
 			'[object Array]' === Object.prototype.toString.call(initialData)
 		) {
 			if (initialData.length > 8)
-				throw new Error("Byte's bits Array length must not exceed of 8");
+				throw new Error('Argument with type of Array must not have more than 8 elements');
+
 			this.data = BitHelper.fitBits(
 				initialData.map(bit => {
 					let newBit = +bit;
 					if (isNaN(newBit))
-						throw new Error('One of bits you provided is invalid.');
+						throw new Error('One of bits you provided is invalid');
+
 					return newBit;
 				})
 			);
-		} else throw new Error('Byte must be an bits Array or byte Number');
+		} else
+			throw new Error('Argument must be an Array of bits or 8-bit unsigned integer');
 	}
+
 	/**
 	 * Change bit on a given offset.
 	 * @param {number} offset - Bit offset.
@@ -37,8 +42,9 @@ class BitByte {
 	setBit(offset, bit) {
 		BitHelper.checkOffset(offset);
 		this.data[offset] = !bit ^ true;
-		return this.data;
+		return this.data[offset];
 	}
+
 	/**
 	 * Get bit on a given offset.
 	 * @param {number} offset - Bit offset.
@@ -48,15 +54,17 @@ class BitByte {
 		BitHelper.checkOffset(offset);
 		return this.data[offset];
 	}
+
 	/**
 	 * Get local storage of bits as an unsigned byte integer.
 	 * @returns {number} - Unsigned byte integer.
 	 */
 	getByte() {
-		var byte = 0;
-		for (var i = 0; i < this.data.length; i++) {
-			byte += this.data[i] && 2 ** (7 - i);
-		}
+		let { data, } = this,
+			byte = 0;
+		for (let i = 0; i < data.length; i++)
+			byte += data[i] && 2 ** (7 - i);
+
 		return byte;
 	}
 	/**
