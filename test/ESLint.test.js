@@ -21,18 +21,29 @@ function formatMessages(messages) {
 	return `\n${errors.join('\n')}`;
 }
 
-function generateTest(lintResult) {
-	const { filePath, messages, } = lintResult;
+describe('ESLint', function () {
+	this.timeout(10000);
 
-	it(`ESLint validates ${filePath}`, () => {
-		if (messages.length > 0) {
-			assert.strictEqual(false, true, formatMessages(messages));
-		}
+	let lintResults;
+
+	before(async () => {
+		lintResults = await eslint.lintFiles('.');
+
+		describe('ESLint results', () => {
+
+			for (const { filePath, messages, } of lintResults) {
+
+				it(`Validate ${filePath}`, () => {
+					if (messages.length > 0) {
+						assert.strictEqual('Test failed', null, formatMessages(messages));
+					}
+				});
+
+			}
+
+		});
 	});
-}
 
-describe('ESLint', async () => {
-	const lintResults = await eslint.lintFiles('.');
+	it('Run ESlint', () => {});
 
-	lintResults.forEach(generateTest);
 });
