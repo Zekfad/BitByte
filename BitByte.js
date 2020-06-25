@@ -67,6 +67,7 @@ class BitByte {
 
 		return byte;
 	}
+
 	/**
 	 * Get local storage of bits as ASCII character.
 	 * @returns {string} - ASCII character.
@@ -74,6 +75,7 @@ class BitByte {
 	getChar() {
 		return String.fromCharCode(this);
 	}
+
 	/**
 	 * Get local storage of bits as string.
 	 * @returns {string} - String representation of local storage of bits.
@@ -81,6 +83,7 @@ class BitByte {
 	toString() {
 		return this.data.join('');
 	}
+
 	/**
 	 * Get local storage of bits an unsigned byte integer.
 	 * @returns {string} - Unsigned byte integer.
@@ -88,6 +91,7 @@ class BitByte {
 	valueOf() {
 		return this.getByte();
 	}
+
 	/**
 	 * Assign array of bits to an instance.
 	 * @param {number[]|boolean[]} bits - Bits array.
@@ -102,6 +106,7 @@ class BitByte {
 		bits.forEach((bit, index) => this.setBit(offset + index, bit));
 		return true;
 	}
+
 	/**
 	 * Generate bits sequence.
 	 * @yields {number} - Next number in the sequence.
@@ -120,13 +125,19 @@ class BitByte {
 BitByte.safe = function (...args) {
 	return new Proxy(new BitByte(...args), {
 		get: function (obj, prop) {
-			if ('[object Symbol]' !== Object.prototype.toString.call(prop) && !isNaN(+prop))
-				BitHelper.checkOffset(+prop);
+			let offset;
+
+			if (!((offset = BitHelper.castToInt(prop)) instanceof Error))
+				BitHelper.checkOffset(offset);
+
 			return obj[prop];
 		},
 		set: function (obj, prop, value) {
-			if ('[object Symbol]' !== Object.prototype.toString.call(prop) && !isNaN(+prop))
-				BitHelper.checkOffset(+prop);
+			let offset;
+
+			if (!((offset = BitHelper.castToInt(prop)) instanceof Error))
+				BitHelper.checkOffset(offset);
+
 			return obj[prop] = value;
 		},
 	});

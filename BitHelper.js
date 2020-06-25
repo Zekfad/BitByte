@@ -1,5 +1,20 @@
 module.exports = {
 	/**
+	 * Try to cast any object into integer.
+	 * @param {any} object - Object to cast into integer.
+	 * @returns {number|Error} - Casted integer or an error instance.
+	 */
+	castToInt(object) {
+		let newInt;
+		if (
+			'[object Symbol]' !== Object.prototype.toString.call(object) &&
+			!isNaN(newInt = +object)
+		)
+			return newInt;
+		return new Error('Object cant be casted to integer');
+	},
+
+	/**
 	 * Check if given offset is acceptable.
 	 * @param {number} offset - Bit offset.
 	 * @returns {boolean} - Returns true if given argument is acceptable.
@@ -13,6 +28,7 @@ module.exports = {
 
 		return true;
 	},
+
 	/**
 	 * Make array of bits from last 8 elements of an array of number.
 	 * @param {number[]} bitsArray - Array of bits.
@@ -26,6 +42,7 @@ module.exports = {
 
 		return template;
 	},
+
 	/**
 	 * Split unsigned 8-bit integer to array of bits.
 	 * @param {number} byte - Unsigned 8-bit integer.
