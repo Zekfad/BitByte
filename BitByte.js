@@ -120,7 +120,7 @@ class BitByte {
 
 /**
  * Get class representing an array of bits with index assign checks.
- * @returns {BitByteArray}
+ * @returns {BitByte}
  */
 BitByte.safe = function (...args) {
 	return new Proxy(new BitByte(...args), {
