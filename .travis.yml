@@ -1,7 +1,7 @@
 language: node_js
 os: linux
 dist: xenial
-before_script: yarn build
+before_script: yarn build:def
 jobs:
   include:
   - name: Node 10
