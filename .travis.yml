@@ -34,7 +34,7 @@ jobs:
     os: osx
   - name: Latest Node - Linux
     node_js: node
-    install: yarn install --frozen-lockfile --ignore-engines
+    install: yarn install --frozen-lockfile --ignore-engines  
     os: linux
     after_success: yarn run coverage
   allow_failures:
