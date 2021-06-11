@@ -84,11 +84,11 @@ describe('BitByte', () => {
 		it('should edit requested bit', () => {
 			let byte = new BitByte();
 
-			assert.equal(byte.getBit(0), 0);
+			assert.equal(byte.setBit(0, 0), 0);
 
 			byte.setBit(0, 1);
 
-			assert.equal(byte.getBit(0), 1);
+			assert.equal(byte.setBit(0, 1), 1);
 		});
 	});
 

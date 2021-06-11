@@ -1,38 +1,54 @@
 module.exports = {
 	/**
-	 * Check if given offset is acceptable.
-	 * @param {number} offset - Bit offset.
-	 * @returns {boolean} - Returns true if given argument is acceptable.
+	 * Try to cast any object into integer.
+	 * @param {any} object Object to cast into integer.
+	 * @returns {number|Error} Casted integer or an error instance.
 	 */
-	checkOffset: function (offset) {
-		if ('[object Number]' !== Object.prototype.toString.call(offset)) {
+	castToInt(object) {
+		let newInt;
+		if (
+			'[object Symbol]' !== Object.prototype.toString.call(object) &&
+			!isNaN(newInt = +object)
+		)
+			return newInt;
+		return new Error('Object cant be casted to integer');
+	},
+
+	/**
+	 * Check if given offset is acceptable.
+	 * @param {number} offset Bit offset.
+	 * @returns {boolean} Returns true if given argument is acceptable.
+	 */
+	checkOffset(offset) {
+		if ('[object Number]' !== Object.prototype.toString.call(offset))
 			throw new Error('Offset must be a Number');
-		}
-		if (offset > 7 || offset < 0) {
-			throw new Error('Offset must not be greater than 7');
-		}
+
+		if (offset < 0 || offset > 7)
+			throw new Error('Offset must be in the range of 0 to 7');
+
 		return true;
 	},
+
 	/**
-	 * Fit array of bits to 8 elements array.
-	 * @param {number[]} bitsArray - Array of bits.
-	 * @returns {number[]} - Array of bits.
+	 * Make array of bits from last 8 elements of an array of number.
+	 * @param {number[]} bitsArray Array of bits.
+	 * @returns {number[]} Array of bits.
 	 */
-	fitBits: function (bitsArray) {
-		var fullBitsArray = [
-			0, 0, 0, 0, 0, 0, 0, 0,
-		];
-		for (var i = 7; i > -1; i--) {
-			fullBitsArray[i] = !bitsArray[i - (8 - bitsArray.length)] ^ true;
-		}
-		return fullBitsArray;
+	fitBits(bitsArray) {
+		let template = new Array(8);
+
+		for (let i = 7; i > -1; i--)
+			template[i] = !bitsArray[i - (8 - bitsArray.length)] ^ 1;
+
+		return template;
 	},
+
 	/**
-	 * Split unsigned byte integer to array of bits.
-	 * @param {number} byte - Unsigned byte integer.
-	 * @returns {number[]} - Array of bits.
+	 * Split unsigned 8-bit integer to array of bits.
+	 * @param {number} byte Unsigned 8-bit integer.
+	 * @returns {number[]} Array of bits.
 	 */
-	splitByteToBits: function (byte) {
+	splitByteToBits(byte) {
 		return this.fitBits(
 			byte
 				.toString(2)

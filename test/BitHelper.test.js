@@ -6,6 +6,16 @@ const
 
 describe('BitHelper', () => {
 
+	describe('#castToInt()', function () {
+
+		it('should cast any object into integer or return an error', () => {
+			assert.equal(BitHelper.castToInt(null), 0);
+			assert.equal(BitHelper.castToInt('0'), 0);
+			assert.equal(BitHelper.castToInt('Error') instanceof Error, true);
+		});
+
+	});
+
 	describe('#checkOffset()', function () {
 
 		it('should check if given offset is acceptable', () => {
