@@ -1,0 +1,12 @@
+{
+	"include": [
+		"BitByte.js",
+		"BitHelper.js",
+	],
+	"compilerOptions": {
+		"allowJs": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "types",
+	},
+}
