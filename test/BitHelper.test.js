@@ -1,6 +1,8 @@
 const
 	assert = require('assert'),
+
 	BitHelper = require('../BitHelper.js');
+
 
 describe('BitHelper', () => {
 

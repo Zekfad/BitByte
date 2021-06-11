@@ -1,5 +1,6 @@
 const
 	assert = require('assert'),
+
 	{ ESLint, } = require('eslint'),
 
 	extensions = [
@@ -11,6 +12,7 @@ const
 	eslint = new ESLint({
 		extensions,
 	});
+
 
 function formatMessages(messages) {
 	const errors = messages

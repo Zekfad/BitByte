@@ -1,6 +1,8 @@
 const
 	assert = require('assert'),
+
 	BitByte = require('../BitByte.js');
+
 
 describe('BitByte', () => {
 
