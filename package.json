@@ -1,7 +1,7 @@
 {
 	"main": "./BitByte.js",
 	"name": "@zekfad/bitbyte",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "Flexible Byte Structure for JavaScript.",
 	"keywords": [
 		"bit",
